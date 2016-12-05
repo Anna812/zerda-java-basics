@@ -23,9 +23,11 @@ public class Player {
         return sum;
     }
 
-    public void drawCard(Deck deck, int numOfDraws) {
+    public Card drawCard(Deck deck, int numOfDraws) {
         Card drawnCard = deck.cards.get(numOfDraws);
         played.add(drawnCard);
+        deck.used.add(drawnCard);
         sum();
+        return drawnCard;
     }
 }

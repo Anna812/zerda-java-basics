@@ -60,8 +60,10 @@ public class BlackJackApp extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(numOfDraws < 52) {
-                user.drawCard(deck, numOfDraws);
-                house.drawCard(deck, numOfDraws);
+                Card userCard = user.drawCard(deck, numOfDraws);
+                userPlayed.setText(userPlayed.getText() + userCard.toString());
+                Card houseCard = house.drawCard(deck, numOfDraws);
+                housePlayed.setText(housePlayed.getText() + houseCard.toString());
                 numOfDraws++;
             }
         }
