@@ -53,6 +53,8 @@ public class BlackJackApp extends JPanel {
             deck = new Deck();
             user.played = new ArrayList<>();
             house.played = new ArrayList<>();
+            userPlayed.setText("User played:");
+            housePlayed.setText("House played:");
         }
     }
 
