@@ -21,7 +21,7 @@ public class BlackJackApp extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.setSize(500, 100);
+        frame.setSize(700, 100);
         frame.add(this);
         createGUI();
     }
@@ -32,8 +32,8 @@ public class BlackJackApp extends JPanel {
         housePlayed = new JLabel("House played:");
         add(housePlayed);
 
-        Player user = new Player("user");
-        Player house = new Player("house");
+        user = new Player("user");
+        house = new Player("house");
         deck = new Deck();
 
         reset = new JButton("New Game");
@@ -61,9 +61,11 @@ public class BlackJackApp extends JPanel {
         public void actionPerformed(ActionEvent e) {
             if(numOfDraws < 52) {
                 Card userCard = user.drawCard(deck, numOfDraws);
-                userPlayed.setText(userPlayed.getText() + userCard.toString());
+                userPlayed.setText(userPlayed.getText() + " " + userCard.toString());
+                numOfDraws++;
+
                 Card houseCard = house.drawCard(deck, numOfDraws);
-                housePlayed.setText(housePlayed.getText() + houseCard.toString());
+                housePlayed.setText(housePlayed.getText() + " " + houseCard.toString());
                 numOfDraws++;
             }
         }
