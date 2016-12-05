@@ -63,10 +63,11 @@ public class BlackJackApp extends JPanel {
                 Card userCard = user.drawCard(deck, numOfDraws);
                 userPlayed.setText(userPlayed.getText() + " " + userCard.toString());
                 numOfDraws++;
-
-                Card houseCard = house.drawCard(deck, numOfDraws);
-                housePlayed.setText(housePlayed.getText() + " " + houseCard.toString());
-                numOfDraws++;
+                if(house.sum()< 17) {
+                    Card houseCard = house.drawCard(deck, numOfDraws);
+                    housePlayed.setText(housePlayed.getText() + " " + houseCard.toString());
+                    numOfDraws++;
+                }
             }
         }
     }
