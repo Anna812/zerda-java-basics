@@ -106,6 +106,9 @@ class TestApple {
 Are the tests passing? Detail your answer! [2p] Fix the situation! [2p]
 
 #### Explain what you did, and answer the questions here:
+First I realised that int the tests the Apple Class' methods are called on the Apple class while the methods are not static.
+I would add a 'private Apple apple;' field for the TestApple Class, and would add a 'setup()'' method to instantiate the 'apple' Before every test. Then I would call the methods in the tests on this 'apple' like 'apple.add()'.
+And the annotations '@Test' are missing too from every test case.
 
 
 ## 4. Question time! (~20 mins) [6p]
