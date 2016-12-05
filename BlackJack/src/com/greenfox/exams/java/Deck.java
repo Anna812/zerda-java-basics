@@ -2,17 +2,20 @@ package com.greenfox.exams.java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by Anna812 on 12/5/2016.
  */
 public class Deck {
 
-    ArrayList<Card> deck;
+    ArrayList<Card> cards;
+    ArrayList<Card> used;
 
     public Deck() {
-        deck = new ArrayList<>();
+        cards = new ArrayList<>();
         createNewDeck();
+        Collections.shuffle(cards);
     }
 
     private void createNewDeck() {
