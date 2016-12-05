@@ -7,38 +7,36 @@ import java.awt.event.ActionListener;
 /**
  * Created by Anna812 on 12/5/2016.
  */
-public class BlackJackApp extends JFrame{
+public class BlackJackApp extends JPanel{
 
-    private JButton newGame, drawCard;
-    private JLabel userPlayed, housePlayed;
+    private JButton reset, drawCard;
+    private JLabel user, house;
 
     public BlackJackApp() {
-        setTitle("Counter App");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
-        setSize(500, 100);
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setSize(500, 100);
+        frame.add(this);
         createGUI();
     }
 
     private void createGUI() {
-        JPanel panel = new JPanel();
-        add(panel);
+        user = new JLabel("User played:");
+        add(user);
+        house = new JLabel("House played:");
+        add(house);
 
-        userPlayed = new JLabel("User played:");
-        panel.add(userPlayed);
-        housePlayed = new JLabel("House played:");
-        panel.add(housePlayed);
-
-        newGame = new JButton("New Game");
-        newGame.addActionListener(
+        reset = new JButton("New Game");
+        reset.addActionListener(
                 new startNewGame());
-        panel.add(newGame);
+        add(reset);
 
         drawCard = new JButton("Draw a drawCard");
 //        drawCard.addActionListener(
 //                new drawACard());
-        panel.add(drawCard);
+        add(drawCard);
     }
 
     public static void main(String[] args) {
