@@ -3,14 +3,18 @@ package com.greenfox.exams.java;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by Anna812 on 12/5/2016.
  */
-public class BlackJackApp extends JPanel{
+public class BlackJackApp extends JPanel {
 
     private JButton reset, drawCard;
-    private JLabel user, house;
+    private JLabel userPlayed, housePlayed;
+    private Player user, house;
+    private int numOfDraws;
+    private Deck deck;
 
     public BlackJackApp() {
         JFrame frame = new JFrame();
@@ -23,10 +27,14 @@ public class BlackJackApp extends JPanel{
     }
 
     private void createGUI() {
-        user = new JLabel("User played:");
-        add(user);
-        house = new JLabel("House played:");
-        add(house);
+        userPlayed = new JLabel("User played:");
+        add(userPlayed);
+        housePlayed = new JLabel("House played:");
+        add(housePlayed);
+
+        Player user = new Player("user");
+        Player house = new Player("house");
+        deck = new Deck();
 
         reset = new JButton("New Game");
         reset.addActionListener(
@@ -34,9 +42,29 @@ public class BlackJackApp extends JPanel{
         add(reset);
 
         drawCard = new JButton("Draw a drawCard");
-//        drawCard.addActionListener(
-//                new drawACard());
+        drawCard.addActionListener(
+                new drawACard());
         add(drawCard);
+    }
+
+    private class startNewGame implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            deck = new Deck();
+            user.played = new ArrayList<>();
+            house.played = new ArrayList<>();
+        }
+    }
+
+    private class drawACard implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(numOfDraws < 52) {
+                user.drawCard(deck, numOfDraws);
+                house.drawCard(deck, numOfDraws);
+                numOfDraws++;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -46,12 +74,5 @@ public class BlackJackApp extends JPanel{
                 new BlackJackApp();
             }
         });
-    }
-
-    private class startNewGame implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Deck deck = new Deck();
-        }
     }
 }

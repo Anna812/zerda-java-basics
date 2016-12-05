@@ -9,8 +9,8 @@ import java.util.Collections;
  */
 public class Deck {
 
-    ArrayList<Card> cards;
-    ArrayList<Card> used;
+    protected ArrayList<Card> cards;
+    protected ArrayList<Card> used;
 
     public Deck() {
         cards = new ArrayList<>();

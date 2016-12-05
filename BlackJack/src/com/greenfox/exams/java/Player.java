@@ -8,7 +8,12 @@ import java.util.ArrayList;
 public class Player {
 
     private String name;
-    ArrayList<Card> played;
+    protected ArrayList<Card> played;
+
+    public Player(String name) {
+        this.name = name;
+        played = new ArrayList<>();
+    }
 
     public int sum() {
         int sum = 0;
@@ -16,5 +21,11 @@ public class Player {
             sum += temp.calculateValue();
         }
         return sum;
+    }
+
+    public void drawCard(Deck deck, int numOfDraws) {
+        Card drawnCard = deck.cards.get(numOfDraws);
+        played.add(drawnCard);
+        sum();
     }
 }
