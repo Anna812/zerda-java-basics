@@ -14,6 +14,7 @@ public class Deck {
 
     public Deck() {
         cards = new ArrayList<>();
+        used = new ArrayList<>();
         createNewDeck();
         Collections.shuffle(cards);
     }
@@ -25,7 +26,7 @@ public class Deck {
 
         for (String colour : possibleColours) {
             for (String value : possibleValues) {
-                new Card(colour, value);
+                cards.add(new Card(colour, value));
             }
         }
     }
