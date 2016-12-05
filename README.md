@@ -111,10 +111,10 @@ Are the tests passing? Detail your answer! [2p] Fix the situation! [2p]
 ## 4. Question time! (~20 mins) [6p]
 
 ### Where the abstract class is useful? [2p]
-#### Your answer:
+#### Your answer: When we don't want to create instances of a Class, but we want to use its methods on several extended classes.
 
 ### Describe a method! Show the necessary parts and how are them called! [2p]
-#### Your answer:
+#### Your answer: A method is a behaviour of a Class like: size() or add(). It can be void or can have a return value, and one can also feed arguments to it inbetween the brackets. Methods can also throw Exceptions if necessary. If static, it can only be called on the Class, otherwise it is called on an instance of a class.
 
 ### What is the constructor? When it is used? [2p]
-#### Your answer:
+#### Your answer: One can instantiate an instance of a class via calling its constructor. Every Class has an empty constructor, as they are all extended from the Object class. There can be several constructors to a class with different amount of arguments necessary for them.
