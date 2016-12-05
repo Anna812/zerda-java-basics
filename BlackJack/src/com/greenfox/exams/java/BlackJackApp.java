@@ -1,6 +1,8 @@
 package com.greenfox.exams.java;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Anna812 on 12/5/2016.
@@ -29,15 +31,14 @@ public class BlackJackApp extends JFrame{
         panel.add(housePlayed);
 
         newGame = new JButton("New Game");
-//        newGame.addActionListener(
-//                new startNewGAme());
+        newGame.addActionListener(
+                new startNewGame());
         panel.add(newGame);
 
         drawCard = new JButton("Draw a drawCard");
 //        drawCard.addActionListener(
 //                new drawACard());
         panel.add(drawCard);
-
     }
 
     public static void main(String[] args) {
@@ -47,5 +48,12 @@ public class BlackJackApp extends JFrame{
                 new BlackJackApp();
             }
         });
+    }
+
+    private class startNewGame implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Deck deck = new Deck();
+        }
     }
 }
